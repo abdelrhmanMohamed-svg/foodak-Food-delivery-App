@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/core/theme/app_colors.dart';
 import 'package:food_delivery/root.dart';
 
 void main() {
@@ -8,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Foodak-Delivery App',
       theme: ThemeData(
         useMaterial3: true,
+        primarySwatch: Colors.deepOrange
       ),
-      home: Root(),
+      home: const Root(),
     );
   }
 }

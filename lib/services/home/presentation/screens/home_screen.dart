@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/app_colors.dart';
 import 'package:food_delivery/services/home/data/models/food_item.dart';
+import 'package:food_delivery/services/home/presentation/widgets/grid_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,37 +35,8 @@ class HomeScreen extends StatelessWidget {
                 childAspectRatio: 0.9,
               ),
               itemBuilder: (context, index) {
-                final item = food[index];
-                return SizedBox(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      children: [
-                        Image.network(
-                          item.imgUrl,
-                          fit: BoxFit.contain,
-                          height: size.height * 0.15,
-                        ),
-                        SizedBox(height: size.height * 0.01),
-                        Text(
-                          item.name,
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        SizedBox(height: size.height * 0.001),
-                        Text(
-                          "\$${item.price}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium!
-                              .copyWith(fontSize: 22, color: AppColors.primary),
-                        )
-                      ],
-                    ),
-                  ),
-                );
+                
+                return GridItem(itemIndex: index);
               },
             )
           ],

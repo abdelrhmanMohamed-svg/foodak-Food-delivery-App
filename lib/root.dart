@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/app_colors.dart';
+import 'package:food_delivery/services/favorite/presentation/screens/favorite_screen.dart';
 import 'package:food_delivery/services/home/presentation/screens/home_screen.dart';
 
 class Root extends StatefulWidget {
@@ -19,7 +20,7 @@ class _RootState extends State<Root> {
 
   List<Widget> pages = const [
     HomeScreen(),
-    Center(child: Text("favorite")),
+    FavoriteScreen(),
     Center(child: Text("Profile")),
   ];
 

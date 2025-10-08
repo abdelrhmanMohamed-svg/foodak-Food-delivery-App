@@ -34,6 +34,7 @@ class FoodItem {
   }
 }
 
+
 List<FoodItem> food = [
   FoodItem(
     id: 'burger 1',
@@ -56,6 +57,7 @@ List<FoodItem> food = [
     imgUrl: 'https://www.pngarts.com/files/3/Chicken-Burger-PNG-Photo.png',
     price: 8,
     categoryId: '1',
+    
   ),
   FoodItem(
     id: 'pizza 1',
