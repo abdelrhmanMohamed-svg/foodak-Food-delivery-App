@@ -15,9 +15,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Foodak-Delivery App',
       theme: ThemeData(
-        useMaterial3: true,
-        primarySwatch: Colors.deepOrange
-      ),
+          fontFamily: "OpenSans",
+          scaffoldBackgroundColor: AppColors.lightBackground,
+          useMaterial3: true,
+          colorSchemeSeed: Colors.deepOrange,
+          appBarTheme: AppBarTheme(
+            centerTitle: true,
+            backgroundColor: AppColors.lightBackground,
+            elevation: 0,
+          )),
       home: const Root(),
     );
   }
