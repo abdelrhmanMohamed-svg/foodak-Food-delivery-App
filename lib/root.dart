@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/app_colors.dart';
 import 'package:food_delivery/services/favorite/presentation/screens/favorite_screen.dart';
 import 'package:food_delivery/services/home/presentation/screens/home_screen.dart';
+import 'package:food_delivery/services/profile/presentation/screens/profile_screen.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -21,21 +22,17 @@ class _RootState extends State<Root> {
   List<Widget> pages = const [
     HomeScreen(),
     FavoriteScreen(),
-    Center(child: Text("Profile")),
+    ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.lightBackground,
       appBar: AppBar(
         title: Text(
           "Foodak ",
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        centerTitle: true,
-        backgroundColor: AppColors.lightBackground,
-        elevation: 0,
       ),
       drawer: const Drawer(
         backgroundColor: AppColors.lightBackground,
