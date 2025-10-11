@@ -70,7 +70,7 @@ flutter:
         - asset: assets/fonts/OpenSans_Condensed-Bold.ttf
         - asset: assets/fonts/OpenSans_Condensed-Light.ttf
         - asset: assets/fonts/OpenSans_Condensed-Medium.ttf
-        - asset: aassets/fonts/OpenSans_Condensed-Regular.ttf
+        - asset: assets/fonts/OpenSans_Condensed-Regular.ttf
           weight: 500
 
   

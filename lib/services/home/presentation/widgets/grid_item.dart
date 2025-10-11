@@ -15,8 +15,8 @@ class _GridItemState extends State<GridItem> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return SizedBox(
-      child: DecoratedBox(
+    return LayoutBuilder(
+      builder: (context, constraints) => DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           color: Colors.white,
@@ -24,12 +24,12 @@ class _GridItemState extends State<GridItem> {
         child: Column(
           children: [
             Stack(
+              alignment: AlignmentDirectional.topCenter,
               children: [
                 Image.network(
                   food[widget.itemIndex].imgUrl,
                   fit: BoxFit.contain,
-                  height: size.height * 0.15,
-                  width: size.width,
+                  height: constraints.maxHeight * 0.53,
                 ),
                 InkWell(
                   onTap: () {
@@ -39,31 +39,46 @@ class _GridItemState extends State<GridItem> {
                     });
                   },
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(constraints.maxHeight * 0.03),
                     child: Align(
                       alignment: Alignment.topRight,
                       child: Icon(
                           food[widget.itemIndex].isFavorite
                               ? Icons.favorite
-                              :  Icons.favorite_border,
-                          color: AppColors.primary, size: 25),
+                              : Icons.favorite_border,
+                          color: AppColors.primary,
+                          size: constraints.maxHeight * 0.13),
                     ),
                   ),
                 )
               ],
             ),
-            SizedBox(height: size.height * 0.01),
-            Text(
-              food[widget.itemIndex].name,
-              style: Theme.of(context).textTheme.titleLarge,
+            SizedBox(height: constraints.maxHeight * 0.02),
+            SizedBox(
+              width: constraints.maxWidth * 0.61,
+              height: constraints.maxHeight * 0.2,
+              child: FittedBox(
+                child: Text(
+                  food[widget.itemIndex].name,
+                  style: Theme.of(context).textTheme.titleLarge,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
-            SizedBox(height: size.height * 0.001),
-            Text(
-              "\$${food[widget.itemIndex].price}",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(fontSize: 22, color: AppColors.primary),
+            SizedBox(
+              height: constraints.maxHeight * 0.18,
+              width: constraints.maxWidth * 0.61,
+              child: FittedBox(
+                child: Text(
+                  "\$${food[widget.itemIndex].price}",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 22, color: AppColors.primary),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             )
           ],
         ),

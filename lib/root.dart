@@ -29,6 +29,8 @@ class _RootState extends State<Root> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        scrolledUnderElevation: 0,
         title: Text(
           "Foodak ",
           style: Theme.of(context).textTheme.headlineSmall,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/core/theme/app_colors.dart';
 import 'package:food_delivery/services/home/data/models/food_item.dart';
 import 'package:food_delivery/services/home/presentation/widgets/grid_item.dart';
 
@@ -9,6 +8,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -18,24 +19,23 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16.0),
               child: Image.asset(
                 "assets/images/home/classic_burger.jpg",
-                height: size.height * 0.26,
-                width: size.width,
+                height: isLandScape ? size.height * 0.5 : size.height * 0.26,
+                width: isLandScape ? size.width * 0.8 : size.width,
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: size.height * 0.03),
+            SizedBox(height: size.height * 0.05),
             GridView.builder(
               itemCount: food.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 0.9,
+                crossAxisCount: isLandScape ? 4 : 2,
+                mainAxisSpacing:
+                    isLandScape ? size.height * 0.05 : size.height * 0.015,
+                crossAxisSpacing: size.width * 0.02,
               ),
               itemBuilder: (context, index) {
-                
                 return GridItem(itemIndex: index);
               },
             )
