@@ -62,6 +62,7 @@ flutter:
     - assets/images/home/
     - assets/images/favorite/
     - assets/images/profile/
+    - assets/screeenShots/
 
  
   fonts:
