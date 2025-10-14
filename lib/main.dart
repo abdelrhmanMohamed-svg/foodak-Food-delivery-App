@@ -27,7 +27,14 @@ class MyApp extends StatelessWidget {
             centerTitle: true,
             backgroundColor: AppColors.lightBackground,
             elevation: 0,
-          )),
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: AppColors.white))),
       home: const Root(),
     );
   }

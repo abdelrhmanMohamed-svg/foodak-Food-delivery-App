@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/services/home/data/models/food_item.dart';
 import 'package:food_delivery/services/home/presentation/widgets/grid_item.dart';
+import 'package:food_delivery/services/itemDetails/presentation/screens/item_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisSpacing: size.width * 0.02,
               ),
               itemBuilder: (context, index) {
-                return GridItem(itemIndex: index);
+                return  GridItem(itemIndex: index);
               },
             )
           ],

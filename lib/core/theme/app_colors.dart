@@ -7,4 +7,7 @@ class AppColors {
   static const darkBackground = Color(0xFF1F1F1F);
   static const grey = Color(0xFF808080);
   static const darkGrey = Color(0xFF333333);
+  static const white = Colors.white;
+  static const activeCounter = Colors.black;
+  static const inactiveCounter = Color.fromARGB(255, 178, 176, 176);
 }
