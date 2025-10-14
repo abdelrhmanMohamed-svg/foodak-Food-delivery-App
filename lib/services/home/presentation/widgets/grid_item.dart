@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/app_colors.dart';
+import 'package:food_delivery/core/ui_models/item_details_args.dart';
 import 'package:food_delivery/services/home/data/models/food_item.dart';
 import 'package:food_delivery/services/itemDetails/presentation/screens/item_details_screen.dart';
 import 'package:food_delivery/shared/fav_button.dart';
@@ -25,13 +26,8 @@ class _GridItemState extends State<GridItem> {
         ),
         child: InkWell(
           onTap: () => Navigator.of(context)
-              .push(
-                MaterialPageRoute(
-                  builder: (context) => ItemDetailsScreen(
-                    itemIndex: widget.itemIndex,
-                  ),
-                ),
-              )
+              .pushNamed(ItemDetailsScreen.routeName,
+                  arguments: ItemDetailsArgs(itemIndex: widget.itemIndex))
               .then(
                 (value) => setState(() {}),
               ),

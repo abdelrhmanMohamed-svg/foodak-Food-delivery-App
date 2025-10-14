@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/app_colors.dart';
+import 'package:food_delivery/core/ui_models/item_details_args.dart';
 import 'package:food_delivery/services/home/data/models/food_item.dart';
 import 'package:food_delivery/services/itemDetails/presentation/widgets/item_counter.dart';
 import 'package:food_delivery/services/itemDetails/presentation/widgets/item_description.dart';
@@ -9,10 +10,16 @@ import 'package:food_delivery/shared/custom_back_button.dart';
 import 'package:food_delivery/shared/fav_button.dart';
 
 class ItemDetailsScreen extends StatelessWidget {
-  const ItemDetailsScreen({super.key, required this.itemIndex});
-  final int itemIndex;
+  const ItemDetailsScreen({
+    super.key,
+  });
+  static const routeName = '/item-details';
+
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as ItemDetailsArgs;
+    final itemIndex = args.itemIndex;
+
     final size = MediaQuery.of(context).size;
     final isLandScape =
         MediaQuery.of(context).orientation == Orientation.landscape;

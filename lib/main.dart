@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_delivery/core/theme/app_colors.dart';
 import 'package:food_delivery/root.dart';
+import 'package:food_delivery/services/itemDetails/presentation/screens/item_details_screen.dart';
 
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +36,10 @@ class MyApp extends StatelessWidget {
                   ),
                   backgroundColor: AppColors.primary,
                   foregroundColor: AppColors.white))),
-      home: const Root(),
+      routes: {
+        '/': (context) => const Root(),
+        ItemDetailsScreen.routeName: (context) => const ItemDetailsScreen(),
+      },
     );
   }
 }

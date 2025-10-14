@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/app_colors.dart';
+import 'package:food_delivery/core/ui_models/item_details_args.dart';
 import 'package:food_delivery/services/home/data/models/food_item.dart';
 import 'package:food_delivery/services/itemDetails/presentation/screens/item_details_screen.dart';
 
@@ -49,13 +50,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               final targetItem = favoriteList[index];
               final targetIndex = food.indexOf(targetItem);
               Navigator.of(context)
-                  .push(
-                    MaterialPageRoute(
-                      builder: (context) => ItemDetailsScreen(
-                        itemIndex: targetIndex,
-                      ),
-                    ),
-                  )
+                  .pushNamed(ItemDetailsScreen.routeName,
+                      arguments: ItemDetailsArgs(itemIndex: targetIndex))
                   .then(
                     (value) => setState(() {}),
                   );
