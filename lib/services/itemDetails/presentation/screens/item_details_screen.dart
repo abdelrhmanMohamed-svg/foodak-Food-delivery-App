@@ -23,10 +23,39 @@ class ItemDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    TopBanner(itemIndex: itemIndex),
+              child: CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    expandedHeight: size.height * 0.5,
+                    pinned: true,
+                    leading: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15.0, vertical: 8.0),
+                      child: CustomBackButton(iconSize: size.height * 0.035),
+                    ),
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Image.network(
+                          food[itemIndex].imgUrl,
+                          height: size.height * 0.46,
+                          width: size.width * 0.9,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15.0, vertical: 8.0),
+                        child: FavButton(
+                            itemIndex: itemIndex,
+                            iconSize: size.height * 0.035),
+                      ),
+                    ],
+                  ),
+                  SliverList(
+                      delegate: SliverChildListDelegate([
                     Padding(
                       padding: const EdgeInsets.only(
                           right: 15.0, left: 15.0, top: 10.0, bottom: 25.0),
@@ -60,12 +89,14 @@ class ItemDetailsScreen extends StatelessWidget {
                           SizedBox(height: size.height * 0.042),
                           Text(
                               "Occaecat mollit adipisicing aliquip in incididunt do commodo sit elit. Enim magna officia esse fugiat mollit. Qui id incididunt qui esse exercitation exercitation reprehenderit. Velit nisi eu incididunt ea et. Sit occaecat ea cillum et quis labore mollit officia elit duis. Consectetur nostrud voluptate consectetur enim excepteur ut anim occaecat consequat Lorem Lorem anim aliqua minim."),
-                          SizedBox(height: size.height * 0.03),
+                          SizedBox(
+                            height: 600,
+                          ),
                         ],
                       ),
                     )
-                  ],
-                ),
+                  ]))
+                ],
               ),
             ),
             Padding(
