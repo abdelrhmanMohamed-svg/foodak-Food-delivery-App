@@ -6,8 +6,11 @@ import 'package:food_delivery/services/itemDetails/presentation/screens/item_det
 import 'package:food_delivery/shared/fav_button.dart';
 
 class GridItem extends StatefulWidget {
-  const GridItem({super.key, required this.itemIndex});
-  final int itemIndex;
+  final FoodItem item;
+  const GridItem({
+    super.key,
+    required this.item,
+  });
 
   @override
   State<GridItem> createState() => _GridItemState();
@@ -16,74 +19,48 @@ class GridItem extends StatefulWidget {
 class _GridItemState extends State<GridItem> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return LayoutBuilder(
-      builder: (context, constraints) => DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.0),
-          color: Colors.white,
-        ),
-        child: InkWell(
-          onTap: () => Navigator.of(context)
-              .pushNamed(ItemDetailsScreen.routeName,
-                  arguments: ItemDetailsArgs(itemIndex: widget.itemIndex))
-              .then(
-                (value) => setState(() {}),
-              ),
+      builder: (context, constraints) {
+        return Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          color: AppColors.white,
           child: Column(
             children: [
               Stack(
-                alignment: AlignmentDirectional.topCenter,
                 children: [
-                  Image.network(
-                    food[widget.itemIndex].imgUrl,
-                    fit: BoxFit.contain,
-                    height: constraints.maxHeight * 0.53,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 5.0, vertical: 2.0),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: FavButton(
-                          itemIndex: widget.itemIndex,
-                          iconSize: constraints.maxHeight * 0.13),
+                  SizedBox(
+                    height: constraints.maxHeight * 0.55,
+                    width: double.infinity,
+                    child: Image.network(
+                      widget.item.imgUrl,
+                      fit: BoxFit.contain,
                     ),
+                  ),
+                  Positioned(
+                    right: 4,
+                    top: 4,
+                    child: FavButton(
+                        itemIndex: food.indexOf(widget.item),
+                        iconSize: constraints.maxHeight * 0.15),
                   )
                 ],
               ),
-              SizedBox(height: constraints.maxHeight * 0.02),
-              SizedBox(
-                width: constraints.maxWidth * 0.61,
-                height: constraints.maxHeight * 0.2,
-                child: FittedBox(
-                  child: Text(
-                    food[widget.itemIndex].name,
-                    style: Theme.of(context).textTheme.titleLarge,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+              Expanded(
+                child: Text(
+                  widget.item.name,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
-              SizedBox(
-                height: constraints.maxHeight * 0.18,
-                width: constraints.maxWidth * 0.61,
-                child: FittedBox(
-                  child: Text(
-                    "\$${food[widget.itemIndex].price}",
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(fontSize: 22, color: AppColors.primary),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              )
+              Text(
+                "\$${widget.item.price}",
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
