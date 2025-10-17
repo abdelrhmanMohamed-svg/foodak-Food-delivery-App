@@ -19,11 +19,13 @@ Key techniques and widgets used to achieve this include:
 ## ✨ Features
 
 - **Home Screen**: Displays a promotional banner and a grid of food items. The grid's column count and item aspect ratio change based on screen size and orientation.
+- **Category Filtering**: On the home screen, users can tap on a category to filter the displayed food items. Tapping the selected category again clears the filter.
 - **Favorites Screen**: Shows a list of items the user has marked as a favorite. It includes an empty state for when no favorites are selected.
+- **Item Details Screen**: Provides a detailed view of a food item, including a larger image, description, and properties like size and calories. The layout is fully responsive for both portrait and landscape modes.
 - **Profile Screen**: A user profile page that dramatically changes its layout between portrait and landscape modes to better utilize screen real estate.
 - **Adaptive UI**: The app adapts its layout for:
   - Small Screens (e.g., mobile phones)
-  - Large Screens (e.g., tablets)
+  - Large Screens (e.g., tablets or web)
   - Portrait Orientation
   - Landscape Orientation
 
@@ -33,15 +35,15 @@ The UI dynamically adapts to different screen sizes and orientations.
 
 **Portrait Mode**
 
-|                  Home Screen                   |                    Favorites Screen                     |                           Empty Favorites                           |                    Profile Screen                    |
-| :--------------------------------------------: | :-----------------------------------------------------: | :-----------------------------------------------------------------: | :--------------------------------------------------: |
-| ![Home Portrait](assets/screeenShots/home.png) | ![Favorites Portrait](assets/screeenShots/favorite.png) | ![Empty Favorites Portrait](assets/screeenShots/empty_favorite.png) | ![Profile Portrait](assets/screeenShots/profile.png) |
+|                        Home Screen                        |                    Favorites Screen                     |                           Empty Favorites                           |                    Profile Screen                    |                              Item Details                               |
+| :-------------------------------------------------------: | :-----------------------------------------------------: | :-----------------------------------------------------------------: | :--------------------------------------------------: | :---------------------------------------------------------------------: |
+| ![Home Portrait](assets/screeenShots/homewithFilters.png) | ![Favorites Portrait](assets/screeenShots/favorite.png) | ![Empty Favorites Portrait](assets/screeenShots/empty_favorite.png) | ![Profile Portrait](assets/screeenShots/profile.png) | ![Item Details Portrait](assets/screeenShots/itemDetails.png) |
 
 **Landscape Mode**
 
-|                        Home Screen                        |                          Favorites Screen                          |                                Empty Favorites                                |                         Profile Screen                          |
-| :-------------------------------------------------------: | :----------------------------------------------------------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------: |
-| ![Home Landscape](assets/screeenShots/home_landscape.png) | ![Favorites Landscape](assets/screeenShots/favorite_landscape.png) | ![Empty Favorites Landscape](assets/screeenShots/empty_favortie_lanscape.png) | ![Profile Landscape](assets/screeenShots/profile_landscape.png) |
+|                            Home Screen                             |                          Favorites Screen                          |                                Empty Favorites                                |                         Profile Screen                          |                               Item Details                                |
+| :----------------------------------------------------------------: | :----------------------------------------------------------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+| ![Home Landscape](assets/screeenShots/homWithFiltersLandScape.png) | ![Favorites Landscape](assets/screeenShots/favorite_landscape.png) | ![Empty Favorites Landscape](assets/screeenShots/empty_favortie_lanscape.png) | ![Profile Landscape](assets/screeenShots/profile_landscape.png) | ![Item Details Landscape](assets/screeenShots/itemDetails_landscape.png) |
 
 ## 🛠️ Technologies Used
 

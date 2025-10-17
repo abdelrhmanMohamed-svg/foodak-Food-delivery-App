@@ -74,8 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         },
                         child: Container(
-                          height: size.height * 0.12,
-                          width: size.width * 0.2,
+                          height:isLandScape?size.height * 0.22: size.height * 0.12,
+                          width: isLandScape?size.width * 0.15:  size.width * 0.2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16.0),
                             color: selectedID == category.id
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Image.asset(
                                   category.imgUrl,
-                                  height: size.height * 0.05,
+                                  height: isLandScape?size.height * 0.08: size.height * 0.05,
                                 ),
                                 SizedBox(height: size.height * 0.01),
                                 Text(
